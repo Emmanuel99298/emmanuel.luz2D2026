@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Broto - Blog de Botânica e Horticultura</title>
+    <style>
+        /* CSS Básico para organização visual rápida */
+        :root {
+            --verde-principal: #2c5e43;
+            --verde-claro: #f0f5f1;
+            --texto-escuro: #2b2b2b;
+            --fundo-alternativo: #fbf9f5;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--texto-escuro);
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        header {
+            background-color: var(--verde-principal);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #a8e6cf;
+        }
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        section:nth-child(even) {
+            background-color: var(--fundo-alternativo);
+        }
+        .titulo-secao {
+            color: var(--verde-principal);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .texto-conteudo {
+            font-size: 1.1rem;
+            max-width: 800px;
+        }
+        footer {
+            background-color: var(--verde-principal);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>O Broto 🌱</h1>
+                </div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#herbario">Herbário Digital</a></li>
+                    <li><a href="#farmacia">Farmácia Viva</a></li>
+                    <li><a href="#diy">Cantinho DIY</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="container">
+                <h2 class="titulo-secao">Boas-vindas ao nosso jardim digital!</h2>
+                <p class="texto-conteudo">
+                    Se você já se pegou conversando com uma samambaia, comemorando o nascimento de uma folha nova ou tentando salvar aquele cacto que todo mundo diz que "não morre", você encontrou o seu lugar. O objetivo deste blog é descomplicar a botânica e a horticultura, mostrando que ter um dedinho verde não é um dom de nascença, mas sim uma prática deliciosa de paciência e observação.
+                </p>
+                <p class="texto-conteudo">
+                    Aqui, nós celebramos desde a semente que acaba de romper a terra até as colheitas mais fartas. Explore nossas páginas, suje as mãos de terra e descubra como trazer mais vida para o seu cotidiano. Vamos cultivar juntos?
+                </p>
+            </div>
+        </section>
+
+        <section id="herbario">
+            <div class="container">
+                <h2 class="titulo-secao">A beleza botânica em detalhes</h2>
+                <p class="texto-conteudo">
+                    Cada folha conta uma história de adaptação, luz e sobrevivência. No nosso Herbário Digital, nós catalogamos as mais diversas espécies de forma simples e visual para que você aprenda a identificar, compreender e cuidar de cada uma delas.
+                </p>
+                <p class="texto-conteudo">
+                    Muito além de nomes científicos complicados, aqui você descobre a personalidade de cada planta: quem gosta de tomar sol o dia todo, quem prefere a sombra fresca da sala e quais são os segredos para manter o solo sempre perfeito. Navegue pelas nossas fichas técnicas e monte a sua própria coleção de conhecimento verde.
+                </p>
+            </div>
+        </section>
+
+        <section id="farmacia">
+            <div class="container">
+                <h2 class="titulo-secao">O poder que brota da terra</h2>
+                <p class="texto-conteudo">
+                    A natureza é a nossa forma mais antiga de autocuidado. Nesta seção, mergulhamos no universo das plantas medicinais, aromáticas e especiarias que você pode cultivar facilmente no quintal ou em vasos na janela da cozinha.
+                </p>
+                <p class="texto-conteudo">
+                    Descubra as propriedades calmantes da camomila, o frescor revigorante do hortelã e os segredos culinários do alecrim. Cultivar a sua própria "farmácia viva" é uma forma de se conexão com as tradições antigas, trazendo mais saúde, aromas incríveis e sabores autênticos para o seu dia a dia de forma 100% orgânica.
+                </p>
+            </div>
+        </section>
+
+        <section id="diy">
+            <div class="container">
+                <h2 class="titulo-secao">Criatividade que floresce</h2>
+                <p class="texto-conteudo">
+                    Cuidar de plantas também é uma arte manual! No Cantinho DIY, transformamos materiais simples em soluções incríveis e personalizadas para o seu jardim ou apartamento.
+                </p>
+                <p class="texto-conteudo">
+                    Aqui você encontra tutoriais passo a passo para colocar a mão na massa de verdade: desde como montar um terrário fechado (um verdadeiro ecossistema em um vidro) até a fabricação de vasos de cimento feitos em casa ou sistemas caseiros de irrigação por gotejamento. Não tenha medo de errar: o processo de criar com as próprias mãos é tão terapêutico quanto ver uma planta crescer.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 O Broto - Estudante de Web Design. Cultivando ideias.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
