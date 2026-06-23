@@ -1,0 +1,104 @@
+body {
+font-family: 'Georgia', 'Times New Roman', serif;
+color: #2c3e2e; /* Verde floresta bem escuro para o texto */
+margin: 0;
+padding: 0;
+line-height: 1.8;
+/* Cores calmas de fundo (Off-white/Areia de base) */
+background-color: #faf7f2;
+/* Efeito sutil de Toalha de Mesa de Vó (Xadrez Piquenique bem suave) */
+background-image:
+linear-gradient(90deg, rgba(234, 242, 231, 0.5) 1px, transparent 1px),
+linear-gradient(rgba(234, 242, 231, 0.5) 1px, transparent 1px);
+background-size: 24px 24px;
+}
+/* --------------------------------------------------------------------------
+HEADER: O topo acolhedor do site
+-------------------------------------------------------------------------- */
+header {
+background-color: #ffffff;
+border-bottom: 3px double #a3b899; /* Linha dupla que lembra costura antiga */
+padding: 30px 0;
+margin-bottom: 40px; /* Espaço para o conteúdo respirar */
+box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+/* --------------------------------------------------------------------------
+
+NAV: O menu de navegação flutuante e limpo
+-------------------------------------------------------------------------- */
+nav {
+max-width: 1000px;
+margin: 0 auto;
+padding: 0 20px;
+display: block; /* Compatibilidade limpa */
+}
+nav .logo h1 {
+font-size: 2rem;
+color: #1b432a; /* Verde sálvia fechado */
+text-align: center;
+margin-bottom: 20px;
+font-style: italic;
+}
+nav ul {
+list-style: none;
+padding: 0;
+margin: 0;
+text-align: center; /* Centraliza os links */
+}
+nav ul li {
+display: inline-block;
+margin: 0 15px;
+}
+nav ul li a {
+color: #4a6b53;
+text-decoration: none;
+font-size: 1.1rem;
+font-weight: bold;
+padding: 5px 10px;
+border-radius: 4px;
+transition: all 0.3s ease;
+}
+nav ul li a:hover {
+background-color: #e1eae0;
+color: #1b432a;
+}
+/* --------------------------------------------------------------------------
+MAIN: O coração do blog, focado em espaçamento ("ar") e leitura
+-------------------------------------------------------------------------- */
+main {
+max-width: 800px; /* Largura ideal para leitura confortável */
+
+margin: 0 auto;
+padding: 0 25px; /* Margens internas generosas nas bordas */
+}
+section {
+background-color: #ffffff;
+padding: 40px 50px; /* Bastante espaço interno ("ar") */
+margin-bottom: 50px; /* Separação generosa entre os blocos */
+border-radius: 8px;
+box-shadow: 0 4px 15px rgba(44, 62, 46, 0.04); /* Sombra levíssima */
+border: 1px solid #eef3ed;
+}
+.titulo-secao {
+color: #1b432a;
+font-size: 1.8rem;
+margin-top: 0;
+margin-bottom: 20px;
+}
+.texto-conteudo {
+font-size: 1.15rem;
+color: #3a4d3e;
+margin-bottom: 15px;
+}
+/* --------------------------------------------------------------------------
+FOOTER: O fechamento afetuoso da página
+-------------------------------------------------------------------------- */
+footer {
+background-color: #ffffff;
+color: #68826e;
+text-align: center;
+padding: 30px 0;
+margin-top: 60px;
+border-top: 1px dashed #a3b899;
+font-size: 0.95rem;
+}
