@@ -3,27 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Broto - Blog de Botânica e Horticultura</title>
+    <title>O Broto - Botânica Crítica e Horticultura Popular</title>
     <style>
-        /* CSS Básico para organização visual rápida */
         :root {
             --verde-principal: #2c5e43;
-            --verde-claro: #f0f5f1;
+            --verde-escuro: #1b3d2b;
+            --verde-claro: #a8e6cf;
             --texto-escuro: #2b2b2b;
+            --fundo-base: #F4F0EA;
         }
-        
-        /* 2. Fundo amarelado aconchegante (estilo papel vintage/areia) + Textura */
+
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--texto-escuro);
             margin: 0;
             padding: 0;
-            background-color: #F4F0EA; /* Tom amarelado suave */
-            /* Textura sutil de papel artesanal */
+            background-color: var(--fundo-base);
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
         }
 
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* HEADER & NAV */
         header {
             background-color: var(--verde-principal);
             color: white;
@@ -31,21 +39,17 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
         }
-        .container {
-            width: 85%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .logo h1 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
+
+        .logo h1 { margin: 0; font-size: 1.5rem; }
+
         nav ul {
             list-style: none;
             padding: 0;
@@ -53,30 +57,73 @@
             display: flex;
             gap: 20px;
         }
+
         nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
         }
-        nav ul li a:hover {
-            color: #a8e6cf;
+
+        nav ul li a:hover { color: var(--verde-claro); }
+
+        /* SEÇÕES E GRID LAYOUT */
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
 
-        /* Container da imagem para o Zoom 'on Hover' */
+        section:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .layout-secao {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .layout-secao { grid-template-columns: 1fr; }
+        }
+
+        .titulo-secao {
+            color: var(--verde-principal);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .texto-conteudo {
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+        }
+
+        /* ASIDE & CARDS COMPLEMENTARES */
+        aside {
+            background-color: rgba(255, 255, 255, 0.6);
+            border-left: 4px solid var(--verde-principal);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        aside h3 {
+            margin-top: 0;
+            color: var(--verde-principal);
+        }
+
+        /* IMAGENS E EFEITOS */
         .container-imagem {
             overflow: hidden;
             border-radius: 8px;
             margin: 1.5rem 0;
-            /* Borda verde no tom do header */
             border: 4px solid var(--verde-principal);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        /* Transição e Zoom das imagens */
         .imagem-secao {
             width: 100%;
-            max-width: 100%;
             height: auto;
             display: block;
             transition: transform 0.5s ease;
@@ -86,32 +133,73 @@
             transform: scale(1.08);
         }
 
-        section {
-            padding: 4rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        /* ELEMENTS EXPANSÍVEIS (<DETAILS>) */
+        details {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid var(--verde-principal);
+            border-radius: 8px;
+            padding: 0.8rem 1.2rem;
+            margin-top: 1.2rem;
+            cursor: pointer;
         }
-        /* Deixamos as seções transparentes para a cor amarelada do fundo aparecer! */
-        section:nth-child(even) {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-        .titulo-secao {
+
+        summary {
+            font-weight: bold;
             color: var(--verde-principal);
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            font-size: 1.05rem;
         }
-        .texto-conteudo {
-            font-size: 1.1rem;
-            max-width: 800px;
+
+        .lista-ervas {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
         }
+
+        .lista-ervas li {
+            background: rgba(44, 94, 67, 0.05);
+            border-left: 3px solid var(--verde-principal);
+            padding: 0.8rem;
+            margin-bottom: 0.8rem;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .receita-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 0.8rem;
+            border-left: 3px solid var(--verde-principal);
+        }
+
+        /* BOTÃO INTERATIVO (ADUBAR) */
+        .btn-interativo {
+            background-color: var(--verde-principal);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.95rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .btn-interativo:hover {
+            background-color: var(--verde-escuro);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
         footer {
             background-color: var(--verde-principal);
             color: white;
             text-align: center;
             padding: 1.5rem 0;
             margin-top: 2rem;
-        }
-        html {
-            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -137,69 +225,197 @@
         <section id="home">
             <div class="container">
                 <h2 class="titulo-secao">Boas-vindas ao nosso jardim digital!</h2>
-                <div class="container-imagem">
-                    <img src="images/capa_do_blog.png" alt="Desenho bordado, estilo toalha de mesa, com um bosque e flores" class="imagem-secao">
+                <div class="layout-secao">
+                    <article>
+                        <div class="container-imagem">
+                            <img src="images/capa_do_blog.png" alt="Desenho bordado, estilo toalha de mesa, com um bosque e flores" class="imagem-secao">
+                        </div>
+                        <p class="texto-conteudo">
+                            Reconectar-se com a terra nas grandes cidades tornou-se um ato de resistência urbana. O cultivo doméstico vai além da estética: é uma ferramenta direta contra o estresse moderno, a superexposição às telas e a alienação alimentar das grandes metrópoles.
+                        </p>
+                        <p class="texto-conteudo">
+                            O projeto <strong>O Broto</strong> desmistifica a botânica e a horticultura, provando que 'ter dedo verde' é uma prática acessível de observação e paciência. Aqui, a planta não é mero objeto de decoração, mas parte viva de um ecossistema sustentável dentro de casa.
+                        </p>
+                        
+                        <button class="btn-interativo" onclick="adubarPost('countHome', 'textHome')">
+                            🌱 Adubar este artigo (<span id="textHome">0 adubos</span>)
+                        </button>
+                    </article>
+
+                    <aside>
+                        <h3>🌱 Pense Nisso</h3>
+                        <p>Você sabia que cobrir varandas e quintais com plantas reduz a temperatura interna da casa em até 3°C, diminuindo a necessidade de ar-condicionado e mitigando as ilhas de calor urbanas?</p>
+                    </aside>
                 </div>
-                <p class="texto-conteudo">
-                    Se você já se pegou conversando com uma samambaia, comemorando o nascimento de uma folha nova ou tentando salvar aquele cacto que todo mundo diz que "não morre", você encontrou o seu lugar. O objetivo deste blog é descomplicar a botânica e a horticultura, mostrando que ter um dedinho verde não é um dom de nascença, mas sim uma prática deliciosa de paciência e observação.
-                </p>
-                <p class="texto-conteudo">
-                    Aqui, nós celebramos desde a semente que acaba de romper a terra até as colheitas mais fartas. Explore nossas páginas, suje as mãos de terra e descubra como trazer mais vida para o seu cotidiano. Vamos cultivar juntos?
-                </p>
             </div>
         </section>
 
         <section id="herbario">
             <div class="container">
-                <h2 class="titulo-secao">A beleza botânica em detalhes</h2>
-                <div class="container-imagem">
-                    <img src="images/estufa_por_do_Sol.png" alt="Estufa sobre a luz de um por do Sol" class="imagem-secao">
+                <h2 class="titulo-secao">Herbário Digital: Biodiversidade & Consciência</h2>
+                <div class="layout-secao">
+                    <article>
+                        <div class="container-imagem">
+                            <img src="images/estufa_por_do_Sol.png" alt="Estufa sobre a luz de um por do Sol" class="imagem-secao">
+                        </div>
+                        <p class="texto-conteudo">
+                            Em um planeta marcado pela monocultura e perda vertiginosa de espécies, nosso Herbário Digital busca preservar e catalogar o conhecimento botânico de forma democrática. Entender a fisiologia vegetal é entender os limites e as necessidades do meio ambiente.
+                        </p>
+                        <p class="texto-conteudo">
+                            Aprenda a identificar espécies nativas, entenda as necessidades hídricas de cada folha e evite o desperdício de água e insumos no seu cultivo.
+                        </p>
+                        
+                        <details>
+                            <summary>🔍 Veja o segredo da fotossíntese nas cidades</summary>
+                            <p style="margin-top: 10px; font-size: 0.95rem;">Plantas de folhas largas captam poeira em suspensão no ar dos apartamentos, melhorando a qualidade do ar interno enquanto absorvem luz fraca.</p>
+                        </details>
+
+                        <button class="btn-interativo" onclick="adubarPost('countHerbario', 'textHerbario')">
+                            🌱 Adubar este artigo (<span id="textHerbario">0 adubos</span>)
+                        </button>
+                    </article>
+
+                    <aside>
+                        <h3>📌 Guia Rápido</h3>
+                        <p><strong>Dica de Ouro:</strong> Antes de regar, afunde o dedo 2 cm na terra. Se sair sujo, o solo está úmido; se sair limpo, é hora de regar. Evite o desperdício!</p>
+                    </aside>
                 </div>
-                <p class="texto-conteudo">
-                    Cada folha conta uma história de adaptação, luz e sobrevivência. No nosso Herbário Digital, nós catalogamos as mais diversas espécies de forma simples e visual para que você aprenda a identificar, compreender e cuidar de cada uma delas.
-                </p>
-                <p class="texto-conteudo">
-                    Muito além de nomes científicos complicados, aqui você descobre a personalidade de cada planta: quem gosta de tomar sol o dia todo, quem prefere a sombra fresca da sala e quais são os segredos para manter o solo sempre perfeito. Navegue pelas nossas fichas técnicas e monte a sua própria coleção de conhecimento verde.
-                </p>
             </div>
         </section>
 
         <section id="farmacia">
             <div class="container">
-                <h2 class="titulo-secao">O poder que brota da terra</h2>
-                <div class="container-imagem">
-                    <img src="images/medicina_budista.png" alt="Topo de uma montanha com um local para meditação e cura" class="imagem-secao">
+                <h2 class="titulo-secao">Farmácia Viva: A Cura Descentralizada</h2>
+                <div class="layout-secao">
+                    <article>
+                        <div class="container-imagem">
+                            <img src="images/medicina_budista.png" alt="Topo de uma montanha com um local para meditação e cura" class="imagem-secao">
+                        </div>
+                        <p class="texto-conteudo">
+                            Resgatar o cultivo de ervas medicinais é retomar o acesso ao conhecimento tradicional de cura e autocuidado popular. Antes da indústria farmacêutica hiperindustrializada, as ervas eram o pilar do bem-estar comunitário.
+                        </p>
+                        <p class="texto-conteudo">
+                            Cultivar plantas medicinais nativas no próprio quintal reduz o uso de embalagens descartáveis de chás ultraprocessados e garante o consumo de infusões orgânicas e puras.
+                        </p>
+                        
+                        <details>
+                            <summary>🌿 Guia de Chás & Ervas Medicinais Brasileiras</summary>
+                            <ul class="lista-ervas">
+                                <li>
+                                    <strong>1. Espinheira-santa</strong> <em>(Maytenus ilicifolia)</em><br>
+                                    <strong>Benefícios:</strong> Excelente protetor gástrico natural, combate azia e gastrite.<br>
+                                    <strong>Curiosidade:</strong> Ganhou esse nome porque suas folhas têm pequenos espinhos nas bordas e suas propriedades pareciam "sagradas" para as populações tradicionais.
+                                </li>
+                                <li>
+                                    <strong>2. Guaco</strong> <em>(Mikania glomerata)</em><br>
+                                    <strong>Benefícios:</strong> Poderoso broncodilatador e expectorante natural contra tosse e resfriados.<br>
+                                    <strong>Curiosidade:</strong> É uma trepadeira nativa da Mata Atlântica conhecida tradicionalmente como "erva-de-serpente".
+                                </li>
+                                <li>
+                                    <strong>3. Quebra-pedra</strong> <em>(Phyllanthus niruri)</em><br>
+                                    <strong>Benefícios:</strong> Auxilia na saúde renal, desobstruindo os canais urinários.<br>
+                                    <strong>Curiosidade:</strong> Ela cresce espontaneamente até nas frestas de calçadas de concreto, fazendo jus ao seu nome popular!
+                                </li>
+                                <li>
+                                    <strong>4. Marcela</strong> <em>(Achyrocline satureioides)</em><br>
+                                    <strong>Benefícios:</strong> Ação calmante, digestiva e anti-inflamatória.<br>
+                                    <strong>Curiosidade:</strong> No sul do Brasil, existe a tradição popular de colher a marcela bem cedo na Sexta-feira Santa, antes do sol nascer, para garantir "mais poder medicinal".
+                                </li>
+                                <li>
+                                    <strong>5. Capim-santo / Capim-limão</strong> <em>(Cymbopogon citratus)</em><br>
+                                    <strong>Benefícios:</strong> Calmante leve, reduz ansiedade, dores de cabeça e melhora o sono.<br>
+                                    <strong>Curiosidade:</strong> Quando amassado, libera o óleo essencial citral, que afasta mosquitos naturalmente da horta.
+                                </li>
+                            </ul>
+                        </details>
+
+                        <button class="btn-interativo" onclick="adubarPost('countFarmacia', 'textFarmacia')">
+                            🌱 Adubar este artigo (<span id="textFarmacia">0 adubos</span>)
+                        </button>
+                    </article>
+
+                    <aside>
+                        <h3>⚠️ Alerta Sustentável</h3>
+                        <p>Plante em recipientes reutilizados! Potes de vidro e latas limpas funcionam como ótimos vasos para ervas de raízes curtas.</p>
+                    </aside>
                 </div>
-                <p class="texto-conteudo">
-                    A natureza é a nossa forma mais antiga de autocuidado. Nesta seção, mergulhamos no universo das plantas medicinais, aromáticas e especiarias que você pode cultivar facilmente no quintal ou em vasos na janela da cozinha.
-                </p>
-                <p class="texto-conteudo">
-                    Descubra as propriedades calmantes da camomila, o frescor revigorante do hortelã e os segredos culinários do alecrim. Cultivar a sua própria "farmácia viva" é uma forma de se conectar com as tradições antigas, trazendo mais saúde, aromas incríveis e sabores autênticos para o seu dia a dia de forma 100% orgânica.
-                </p>
             </div>
         </section>
 
         <section id="diy">
             <div class="container">
-                <h2 class="titulo-secao">Criatividade que floresce</h2>
-                <div class="container-imagem">
-                    <img src="images/sala_de_estar.png" alt="Uma sala azul com vasos de plantas" class="imagem-secao">
+                <h2 class="titulo-secao">Cantinho DIY: Economia Circular na Prática</h2>
+                <div class="layout-secao">
+                    <article>
+                        <div class="container-imagem">
+                            <img src="images/sala_de_estar.png" alt="Uma sala azul com vasos de plantas" class="imagem-secao">
+                        </div>
+                        <p class="texto-conteudo">
+                            O verdadeiro DIY (Faça Você Mesmo) na horticultura é um manifesto contra a cultura do descarte. Transformar garrafas PET, embalagens de conserva e restos de alimentos em utilitários de jardinagem reduz o acúmulo de lixo nas cidades.
+                        </p>
+                        
+                        <details>
+                            <summary>🧪 Receita: Adubo Caseiro Completo (Cálcio + Nitrogênio)</summary>
+                            <div class="receita-box">
+                                <p><strong>Ingredientes:</strong></p>
+                                <ul>
+                                    <li>5 cascas de ovos lavadas e secas</li>
+                                    <li>2 colheres de sopa de borra de café usada (sem açúcar)</li>
+                                    <li>1 litro de água</li>
+                                </ul>
+                                <p><strong>Modo de Preparo:</strong></p>
+                                <ol>
+                                    <li>Deixe as cascas de ovo secarem ao sol para evitar fungos.</li>
+                                    <li>Bata as cascas no liquidificador com a borra de café e 1 litro de água até virar um líquido homogêneo.</li>
+                                    <li>Aplique diretamente no solo ao redor das plantas uma vez a cada 15 dias.</li>
+                                </ol>
+                                <p><em>Resultado: As cascas fornecem cálcio para fortalecer raízes e a borra de café libera nitrogênio para folhas verdes e vistosas!</em></p>
+                            </div>
+                        </details>
+
+                        <button class="btn-interativo" onclick="adubarPost('countDiy', 'textDiy')">
+                            🌱 Adubar este artigo (<span id="textDiy">0 adubos</span>)
+                        </button>
+                    </article>
+
+                    <aside>
+                        <h3>♻️ Lixo Zero</h3>
+                        <p>Cerca de 50% do lixo doméstico brasileiro é orgânico. A compostagem caseira pode transformar esse "lixo" no melhor adubo do mundo.</p>
+                    </aside>
                 </div>
-                <p class="texto-conteudo">
-                    Cuidar de plantas também é uma arte manual! No Cantinho DIY, transformamos materiais simples em soluções incríveis e personalizadas para o seu jardim ou apartamento.
-                </p>
-                <p class="texto-conteudo">
-                    Aqui você encontra tutoriais passo a passo para colocar a mão na massa de verdade: desde como montar um terrário fechado (um verdadeiro ecossistema em um vidro) até a fabricação de vasos de cimento feitos em casa ou sistemas caseiros de irrigação por gotejamento. Não tenha medo de errar: o processo de criar com as próprias mãos é tão terapêutico quanto ver uma planta crescer.
-                </p>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 O Broto - Emmanuel Luz Rodrigues - 2.º ano D - Cultivando ideias.</p>
+            <p>&copy; 2026 O Broto - Emmanuel Luz Rodrigues - 2.º ano D - Cultivando ideias e sustentabilidade.</p>
         </div>
     </footer>
 
+    <script>
+        // Objeto para armazenar os contadores de cada artigo separadamente
+        const contadores = {
+            countHome: 0,
+            countHerbario: 0,
+            countFarmacia: 0,
+            countDiy: 0
+        };
+
+        function adubarPost(idChave, idTexto) {
+            // Incrementa o contador do artigo específico
+            contadores[idChave]++;
+            
+            let total = contadores[idChave];
+            let elementoTexto = document.getElementById(idTexto);
+
+            // Regra gramatical: 1 adubo | X adubos
+            if (total === 1) {
+                elementoTexto.innerText = "1 adubo";
+            } else {
+                elementoTexto.innerText = total + " adubos";
+            }
+        }
+    </script>
 </body>
 </html>
