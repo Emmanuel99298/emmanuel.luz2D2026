@@ -10,19 +10,18 @@
             --verde-principal: #2c5e43;
             --verde-claro: #f0f5f1;
             --texto-escuro: #2b2b2b;
-            --fundo-alternativo: #fbf9f5;
         }
         
-        /* 2. AJUSTE: Fundo com cor suave amarelada/acinzentada (#E9E8E9) + Textura sutil de papel */
+        /* 2. Fundo amarelado aconchegante (estilo papel vintage/areia) + Textura */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--texto-escuro);
             margin: 0;
             padding: 0;
-            background-color: #E9E8E9; /* Cor base pedida */
-            /* Textura de ruído/grão leve simulando papel artesanal/amassado */
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            background-color: #F4F0EA; /* Tom amarelado suave */
+            /* Textura sutil de papel artesanal */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
         }
 
         header {
@@ -64,36 +63,36 @@
             color: #a8e6cf;
         }
 
-        /* Container da imagem para evitar que o Zoom 'vaze' da caixa */
+        /* Container da imagem para o Zoom 'on Hover' */
         .container-imagem {
             overflow: hidden;
             border-radius: 8px;
             margin: 1.5rem 0;
-            /* 3. AJUSTE: Borda verde no mesmo tom do header com acabamento elegante */
+            /* Borda verde no tom do header */
             border: 4px solid var(--verde-principal);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        /* 1. AJUSTE: Transição suave e efeito Zoom on Hover */
+        /* Transição e Zoom das imagens */
         .imagem-secao {
             width: 100%;
             max-width: 100%;
             height: auto;
             display: block;
-            transition: transform 0.5s ease; /* Efeito suave ao passar/tirar o mouse */
+            transition: transform 0.5s ease;
         }
 
-        /* Efeito de aumento ao passar o mouse */
         .container-imagem:hover .imagem-secao {
-            transform: scale(1.08); /* Aumenta a imagem em 8% */
+            transform: scale(1.08);
         }
 
         section {
             padding: 4rem 0;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
+        /* Deixamos as seções transparentes para a cor amarelada do fundo aparecer! */
         section:nth-child(even) {
-            background-color: rgba(255, 255, 255, 0.4); /* Fundo levemente translúcido */
+            background-color: rgba(255, 255, 255, 0.3);
         }
         .titulo-secao {
             color: var(--verde-principal);
@@ -198,7 +197,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 O Broto - Emmanuel Luz Rodrigues - 2.º ano D - Cultivando ideias.</p>
+            <p>&copy; 2026 O Broto - Estudante de Web Design. Cultivando ideias.</p>
         </div>
     </footer>
 
